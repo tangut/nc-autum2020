@@ -7,7 +7,6 @@ import java.io.*;
 import java.util.Base64;
 
 public class DescriptionBase64 {
-    private final static String alph = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
     public static void Descript(String filepath) throws FileNotFoundException {
         try (BufferedReader buff = new BufferedReader(new FileReader(filepath))){
