@@ -1,10 +1,13 @@
 package com.nc.autumn2020;
 
-import com.nc.autumn2020.solutions.additional.descript.SolutionDescript;
-import com.nc.autumn2020.solutions.lesson3.Solution1;
+import com.nc.autumn2020.solutions.lesson6.DinamicClassLoaderExample;
 import com.nc.autumn2020.solutions.practice.Figure;
 import com.nc.autumn2020.solutions.practice.Square;
 import com.nc.autumn2020.solutions.practice.Triangle;
+import com.nc.autumn2020.solutions.practice.fruits.Basket;
+import com.nc.autumn2020.solutions.practice.fruits.Fruit;
+import com.nc.autumn2020.solutions.practice.fruits.Person;
+import com.nc.autumn2020.solutions.practice.fruits.PlasticContainer;
 
 import java.io.FileNotFoundException;
 
@@ -20,5 +23,23 @@ public class Main {
             sum+=value.countArea();
         }
         System.out.println("Сумма: " + sum);
+        new DinamicClassLoaderExample().run(args);
+
+        Fruit fruit = new Fruit(1000, 1, "Apple");
+        Fruit fruit2 = new Fruit(150, 4, "Orange");
+        Basket basket = new Basket();
+        basket.putFruit(fruit);
+        basket.putFruit(fruit2);
+        PlasticContainer plasticContainer = new PlasticContainer();
+        plasticContainer.putFruit(fruit2);
+        plasticContainer.putFruit(fruit2);
+        plasticContainer.putFruit(fruit2);
+        plasticContainer.putFruit(fruit2);
+        plasticContainer.putFruit(fruit2);
+        plasticContainer.putFruit(fruit2);
+        Person person = new Person("Apple");
+        person.eatFruit(basket);
+        person.eatFruit(basket);
     }
+
 }
