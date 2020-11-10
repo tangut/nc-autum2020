@@ -1,5 +1,6 @@
 package com.nc.autumn2020.solutions.lesson6;
 
+import com.nc.autumn2020.solutions.LessonApi;
 import com.plugin.api.Plugin;
 
 import java.io.File;
@@ -8,9 +9,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
 
-public class DinamicClassLoaderExample {
+public class DinamicClassLoaderExample implements LessonApi {
 
-    public void run(String[] args){
+    public void executeSolution(String[] args){
         File pluginDir = new File("plugins");
         FileFilter jarsFilter = new FileFilter() {
             @Override
