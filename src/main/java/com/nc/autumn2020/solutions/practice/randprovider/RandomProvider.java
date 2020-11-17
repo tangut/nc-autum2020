@@ -29,7 +29,6 @@ public class RandomProvider implements AutoCloseable {
         int[] newArray = new int[n - 1];
         n--;
         if (n == -1) {
-            close();
             throw new ProviderException(RandomProviderErrorCode.ARRAY_IS_EMPTY);
         }
         for (int i = 1; i < n; i++){
@@ -38,7 +37,7 @@ public class RandomProvider implements AutoCloseable {
         array = newArray;
         return result;
     }
-    
+
     @Override
     public void close() throws Exception {
         System.out.println("Провайдер закрылся");
