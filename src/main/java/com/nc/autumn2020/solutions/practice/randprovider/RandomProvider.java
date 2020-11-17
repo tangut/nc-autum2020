@@ -2,7 +2,7 @@ package com.nc.autumn2020.solutions.practice.randprovider;
 
 import java.util.Random;
 
-public class RandomProvider {
+public class RandomProvider implements AutoCloseable {
     private int n; // размерность массива, будет уменьшаться при получении первого элемента
     private int[] array;
 
@@ -24,22 +24,23 @@ public class RandomProvider {
         }
     }
 
-    public int getFirstElem(){
+    public int getFirstElem() throws Exception {
         int result = array[0];
         int[] newArray = new int[n - 1];
+        n--;
+        if (n == -1) {
+            close();
+            throw new ProviderException(RandomProviderErrorCode.ARRAY_IS_EMPTY);
+        }
         for (int i = 1; i < n; i++){
             newArray[i - 1] = array[i];
         }
-        n--;
         array = newArray;
         return result;
     }
-
-    // очищаем массив
-    public void clear(){
-        n = 0;
-        int[] newArray = new int[n];
-        this.array = newArray;
+    
+    @Override
+    public void close() throws Exception {
+        System.out.println("Провайдер закрылся");
     }
-
 }
