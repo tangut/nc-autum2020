@@ -1,5 +1,6 @@
 package com.nc.autumn2020;
 
+import com.nc.autumn2020.solutions.lesson15.SolutionPhilosopher;
 import com.nc.autumn2020.solutions.lesson6.DinamicClassLoaderExample;
 import com.nc.autumn2020.solutions.lesson6.UrlHolder;
 import com.nc.autumn2020.solutions.practice.Figure;
@@ -20,8 +21,7 @@ import java.io.FileNotFoundException;
 
 public class Main {
     public static void main(String[] args) throws ProviderException {
-
-        new QuoteOfDay().executeSolution(args);
+        new SolutionPhilosopher().executeSolution(args);
     }
 
 }
